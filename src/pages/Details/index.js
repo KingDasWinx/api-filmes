@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, createContext } from "react"
 import { useParams, Link } from "react-router-dom"
 import { apiKey } from "../../config/key"
 import { Container } from "./styles"
+import Player from "../Movie"
 
 
 function Details() {
-
     const { id } = useParams()
-
     const [movie, setMovie] = useState({})
     const image_path = 'https://image.tmdb.org/t/p/w500'
 
@@ -19,7 +18,7 @@ function Details() {
                 Authorization: `${apiKey}`
             }
         };
-        fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&page=1`, options)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?language=pt-BR&page=1`, options)
             .then(response => response.json())
             .then(data => {
 
@@ -28,7 +27,8 @@ function Details() {
                     title: data.title,
                     sinopse: data.overview,
                     image: `${image_path}${data.poster_path}`,
-                    releaseDate: data.release_date
+                    releaseDate: data.release_date,
+                    imdb: data.imdb_id
                 }
                 setMovie(movie)
             })
@@ -43,13 +43,14 @@ function Details() {
                     <span>Sinopse: {movie.sinopse}</span>
                     <span className="release-date" >Release date: {movie.releaseDate}</span>
                     <div className="botoes" >
-                        <Link to="/" ><button>Go Back</button></Link>
-                        <Link to="/"><button>Assistir</button></Link>
+                        <Link to="/" ><button>Voltar</button></Link>
+                        <Link to="" element={<Player />}><button>Assistir</button></Link>
                     </div>
                 </div>
             </div>
         </Container>
     )
 }
+
 
 export default Details
