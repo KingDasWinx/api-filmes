@@ -1,0 +1,1 @@
+export const  apiKey = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZDgzYTZmYmM5NzM1YmE1OGUxYTU3ZWYwY2RiMzM1NSIsInN1YiI6IjY0ZDNjMmY2MDIxY2VlMDExYzhmMTcyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._6z0Awt_-otsCw2BvsTWTGvMkqd_4BBhHwwiQ-vlUnY"
