@@ -2,7 +2,6 @@ import { useEffect, useState, createContext } from "react"
 import { useParams, Link } from "react-router-dom"
 import { apiKey } from "../../config/key"
 import { Container } from "./styles"
-import Player from "../Movie"
 
 
 function Details() {
@@ -34,6 +33,8 @@ function Details() {
             })
     }, [id])
 
+
+
     return (
         <Container>
             <div className="movie">
@@ -44,7 +45,8 @@ function Details() {
                     <span className="release-date" >Release date: {movie.releaseDate}</span>
                     <div className="botoes" >
                         <Link to="/" ><button>Voltar</button></Link>
-                        <Link to="" element={<Player />}><button>Assistir</button></Link>
+
+                        <a href={`https://embed.warezcdn.net/filme/${movie.imdb}`} > <button>Assistir</button> </a>
                     </div>
                 </div>
             </div>
