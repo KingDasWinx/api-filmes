@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 4rem 0;
+
+    .lo {
+        position: absolute;
+        top: 17rem;
+        font-size: 30px;
+    }
 
     h1 {
         margin: 3rem 0;

@@ -2,9 +2,17 @@ import { Link } from "react-router-dom";
 import { apiKey } from "../../config/key";
 import { Container, MovieList, Movie, SearchBar } from "./style";
 import { useState, useEffect } from "react";
-import { } from 'antd';
+import { Pagination } from 'antd';
+
+
 
 function Home() {
+
+    const [current, setCurrent] = useState(1);
+    const onChange = (page) => {
+        console.log(page);
+        setCurrent(page);
+    };
 
     //useState dos filmes
     const [movies, setMovies] = useState([])
@@ -12,12 +20,13 @@ function Home() {
 
     //useState da SearchBar
     const [busca, setBusca] = useState([])
-    const [keyword, setKeyword] = useState ([])
+
+
+    const [keyword, setKeyword] = useState([])
 
     //filtra os filmes pela barra de pesquisa
     const lowerCase = busca.toString().toLowerCase();
     const moviesF = movies.filter(movie => movie.title.toLowerCase().includes(lowerCase));
-
     //puxa a api pra mim
     useEffect(() => {
 
@@ -29,15 +38,15 @@ function Home() {
                 Authorization: `${apiKey}`
             }
         };
-
-        fetch('https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1', options)
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=${current}`, options)
             .then(response => response.json())
             .then(data => setMovies(data.results))
+            
 
-        fetch('https://api.themoviedb.org/3/search/movie?include_adult=false&language=pt-BR&page=1', options)
+        fetch(`https://api.themoviedb.org/3/search/movie?include_adult=false&query=${busca}&language=pt-BR&page=${current}`, options)
             .then(response => response.json())
-            .then(data => setKeyword(data.results))
-    }, [])
+            .then(data => setMovies(data.results))
+    }, [current, busca])
 
     return (
         <Container>
@@ -65,6 +74,7 @@ function Home() {
                     )
                 })}
             </MovieList>
+            <Pagination className="pageRoute" current={current} total={5000} onChange={onChange} />
         </Container>
     );
 }

@@ -4,12 +4,13 @@ export const Container = styled.div`
   header {
     display: flex;
     justify-content: space-between;
+    padding: 0 4rem;
+    flex-wrap: wrap;
   }
 
   .categoria {
     display: flex;
     flex-direction: row;
-    margin-left: 5rem;
     gap: 2rem;
   }
 
@@ -17,12 +18,34 @@ export const Container = styled.div`
     text-align: center;
     margin: 4rem 0;
   }
+
+
+  .pageRoute{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pageRoute svg{
+    fill: #fff;
+  }
+  .pageRoute a{
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+    
+  }
+  .ant-pagination-item-active {
+      background-color: #33353b;
+      border-color: #00a8ff;
+    }
 `;
 
 export const MovieList = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  padding: 1rem;
   column-gap: 3rem;
   row-gap: 4rem;
 `;
