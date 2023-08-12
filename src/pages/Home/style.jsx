@@ -25,6 +25,9 @@ export const Container = styled.div`
 
     gap: 2rem;
   }
+  .ant-pagination-options {
+    display: none;
+  }
   
   .categoria {
     display: flex;

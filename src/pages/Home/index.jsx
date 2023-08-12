@@ -49,13 +49,15 @@ function Home() {
             .then(response => response.json())
             .then((data) => {
                 setMovies(data.results);
-                setMoviesFiltered(data.results.filter(movie => movie.title.toLowerCase().includes(lowerCase)));
             })
 
 
         fetch(`https://api.themoviedb.org/3/search/movie?include_adult=false&query=${busca}&language=pt-BR&page=${current}`, options)
             .then(response => response.json())
-            .then(data => setMovies(data.results))
+            .then((data) => {
+                setMovies(data.results);
+                setMoviesFiltered(data.results.filter(movie => movie.title.toLowerCase().includes(lowerCase)));
+            })
 
         // Função que seta no state o tamanho da tela
         const handleResize = () => {
