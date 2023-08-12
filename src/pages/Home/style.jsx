@@ -2,32 +2,121 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   header {
+    width: 100%;
+    height: 70px;
+
+    padding: 0px 20px;
+
     display: flex;
-    justify-content: space-between;
-    padding: 0 4rem;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
   }
 
-  .categoria {
+
+  .nav{
+    max-width: 1000px;
+    width: 100%;
+
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     gap: 2rem;
   }
+  
+  .categoria {
+    display: flex;
+    gap: 30px;
 
-  h1 {
-    text-align: center;
-    margin: 4rem 0;
+    a{
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.4rem;
+    }
+
+    a:hover{
+      opacity: 0.8;
+    }
   }
 
+  .nav-mobile{
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
+  }
+
+  .hamburger{
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .drawner{
+    width: 300px;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    
+
+    background-color: #2C2C2C;
+
+    z-index: 999;
+
+    .container{
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+
+      .categorias-mobile{
+        width: 70%;
+        padding: 40px 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 50px;
+      }
+
+      a{
+        text-decoration: none;
+        color: white;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+
+      .close{
+        position: absolute;
+
+        top: 15px;
+        right: 25px;
+
+        font-size: 1.5rem;
+
+        color: rgba(255, 255, 255, 0.7);
+
+        padding: 0px 10px;
+      }
+    }
+  }
 
   .pageRoute{
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .pageRoute svg{
     fill: #fff;
   }
+
   .pageRoute a{
     color: #fff;
     &:hover {
@@ -35,6 +124,7 @@ export const Container = styled.div`
     }
     
   }
+
   .ant-pagination-item-active {
       background-color: #33353b;
       border-color: #00a8ff;
@@ -45,7 +135,7 @@ export const MovieList = styled.ul`
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  padding: 1rem;
+  padding: 5rem 1rem;
   column-gap: 3rem;
   row-gap: 4rem;
 `;
@@ -79,7 +169,6 @@ export const Movie = styled.li`
 export const SearchBar = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 65px;
   align-items: center;
   background: #33353b;
   height: 40px;
@@ -121,5 +210,19 @@ export const SearchBar = styled.div`
     line-height: 40px;
     width: 0px;
     background: transparent;
+  }
+
+  @media screen and (max-width: 450px){
+    width: 100%;
+    margin-left: 10px;
+    .search-text:focus{
+      width: 100%;
+      padding: 0 6px;
+    }
+
+    &:hover > .search-text{
+      width: 100%;
+      padding: 0 6px;
+    }
   }
 `;
