@@ -13,8 +13,6 @@ function Details() {
     const image_path = 'https://image.tmdb.org/t/p/w500'
     const [loading, setLoading] = useState(true);
 
-    const [season, setSeason] = useState();
-
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -46,11 +44,6 @@ function Details() {
             })
     }, [])
 
-    const handleChange = (e) => {
-        setSeason(e.target.value);
-    };
-
-
     return (
         <Container>
             {loading ? (
@@ -73,34 +66,13 @@ function Details() {
                                 <span className="release-date" >Data de lançamento: {movie.releaseDate1}</span>
                             )}
 
-                            {media === 'movie' ? (
-                                <div>
-                                </div>
-                            ) : (
-                                <div className="temporada">
-                                    <p className="temporada-text">Temporadas</p>
-                                    <div className="radio-container">
-                                        {movie.temporada ? movie.temporada.map((item, key) => {
-                                            return (
-                                                <>
-                                                    <div className="radio">
-                                                        <input value={season} onChange={(e) => handleChange(e)} type="radio" id={key} name="radios" />
-                                                        <label for={key} data-number={item.season_number}></label>
-                                                    </div>
-                                                </>
-                                            )
-                                        }) : null}
-                                    </div>
-                                </div>
-
-                            )}
-
-                            
-
-
                             <div className="botoes" >
                                 <Link to="/search" ><button>Voltar</button></Link>
-                                <a href={`https://embed.warezcdn.net/filme/${movie.imdb}`} > <button>Assistir</button> </a>
+                                {media === 'movie' ? (
+                                    <a href={`https://embed.warezcdn.net/filme/${movie.imdb}`} > <button>Assistir</button> </a>
+                                ) : (
+                                    <a href={`https://embed.warezcdn.net/serie/${movie.imdb}`} > <button>Assistir</button> </a>
+                                )}
                             </div>
                         </div>
                     </div>

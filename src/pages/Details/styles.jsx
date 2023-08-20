@@ -104,6 +104,47 @@ export const Container = styled.div`
     color: white;
   }
 
+
+.CardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  border-radius: 10px;
+  opacity: .4;
+}
+
+.TextContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  flex-direction: row;
+  margin-left: 10px;
+  gap: 10px;
+}
+
+.TextContainer p{
+  font-size: 30px;
+  color: azure;
+}
+
+
+.kaka {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
   @media (max-width: 568px) {
     && {
       padding: 2rem 0;
