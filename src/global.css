@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik";
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.h1-please {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100%;
+  margin-top: 15%;
+  text-align: center;
+}
+
+
+@media (max-width: 568px) {
+  .h1-please {
+    margin-top: 50%;
+  }
+}
+
