@@ -7,13 +7,13 @@ import { useParams } from "react-router-dom";
 function WarezPlayer({ imdbId, mediaType }) {
     const { imdb_id } = useParams()
     const { media } = useParams()
-    const type = media === 'movie' ? 'filmes' : 'serie';
+    const type = media === 'movie' ? 'filme' : 'serie';
     const season = '1';
     const episode = '1';
 
     useEffect(() => {
         function warezPlugin(type, imdb, season, episode) {
-            if (type === 'filmes') {
+            if (type === 'filme') {
                 season = '';
                 episode = '';
             } else {
