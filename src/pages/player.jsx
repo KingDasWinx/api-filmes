@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 function WarezPlayer({ imdbId, mediaType }) {
     const { imdb_id } = useParams()
     const { media } = useParams()
-    const type = media === 'movie' ? 'filme' : 'serie';
+    const type = media === 'filmes' ? 'filme' : 'serie';
     const season = '1';
     const episode = '1';
 
