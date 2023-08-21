@@ -13,7 +13,7 @@ function WarezPlayer({ imdbId, mediaType }) {
 
     useEffect(() => {
         function warezPlugin(type, imdb, season, episode) {
-            if (type === 'filme') {
+            if (type === 'filmes') {
                 season = '';
                 episode = '';
             } else {
