@@ -35,7 +35,7 @@ export const MovieList = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   padding: 5rem 1rem;
   column-gap: 3rem;
-  row-gap: 4rem;
+  row-gap: 3rem;
 
   @media(max-width: 450px) {
     &&{

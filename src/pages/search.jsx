@@ -137,7 +137,7 @@ function Search() {
                                         <div className="container">
                                             <div className="categorias-mobile">
                                                 <Link to="/">
-                                                    <a href="#">Início</a>
+                                                    <a>Início</a>
                                                 </Link>
                                                 <a href="#">Filmes</a>
                                                 <a href="#">Séries</a>
@@ -170,7 +170,7 @@ function Search() {
                                     name="fafa"
                                     placeholder="Minecraft: O filme"
                                 />
-                                <a className="search-btn" href="#">
+                                <a className="search-btn" href="">
                                     <ion-icon className="icon" name="search-outline"></ion-icon>
                                 </a>
                             </SearchBar>

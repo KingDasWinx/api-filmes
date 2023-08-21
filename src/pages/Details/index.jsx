@@ -10,6 +10,7 @@ function Details() {
     const { id } = useParams()
     const { media } = useParams()
     const [movie, setMovie] = useState({})
+    const [imdb, setImdb] = useState({})
     const image_path = 'https://image.tmdb.org/t/p/w500'
     const [loading, setLoading] = useState(true);
 
@@ -22,6 +23,17 @@ function Details() {
             }
         };
 
+        fetch(`https://api.themoviedb.org/3/${media}/${id}/external_ids`, options)
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data);
+
+                const imdb = {
+                    imdb: data.imdb_id,
+                }
+                setImdb(imdb)
+            })
         fetch(`https://api.themoviedb.org/3/${media}/${id}?language=pt-BR&page=1`, options)
             .then(response => response.json())
             .then(data => {
@@ -67,11 +79,16 @@ function Details() {
                             )}
 
                             <div className="botoes" >
-                                <Link to="/search" ><button>Voltar</button></Link>
+                                <Link to="/"><button>Voltar</button></Link>
+                                
                                 {media === 'movie' ? (
-                                    <a href={`https://embed.warezcdn.net/filme/${movie.imdb}`} > <button>Assistir</button> </a>
+                                    <Link to={`/player/filme/${imdb.imdb}`}>
+                                        <a> <button>Assistir</button> </a>
+                                    </Link>
                                 ) : (
-                                    <a href={`https://embed.warezcdn.net/serie/${movie.imdb}`} > <button>Assistir</button> </a>
+                                    <Link to={`/player/serie/${imdb.imdb}`}>
+                                        <a> <button>Assistir</button> </a>
+                                    </Link>
                                 )}
                             </div>
                         </div>

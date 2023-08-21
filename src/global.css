@@ -26,3 +26,6 @@ body {
   }
 }
 
+#selectPlayer {
+  flex-wrap: wrap !important;
+}
