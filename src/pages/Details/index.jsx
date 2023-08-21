@@ -82,7 +82,7 @@ function Details() {
                                 <Link to="/"><button>Voltar</button></Link>
                                 
                                 {media === 'movie' ? (
-                                    <Link to={`/player/filme/${imdb.imdb}`}>
+                                    <Link to={`/player/filmes/${imdb.imdb}`}>
                                         <a> <button>Assistir</button> </a>
                                     </Link>
                                 ) : (
